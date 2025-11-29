@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark mode cyberpunk theme */
+    --background: 240 10% 6%;
+    --foreground: 220 15% 88%;
+
+    --card: 240 10% 8%;
+    --card-foreground: 220 15% 88%;
+
+    --popover: 240 10% 10%;
+    --popover-foreground: 220 15% 88%;
+
+    --primary: 151 100% 50%;
+    --primary-foreground: 240 10% 6%;
+
+    --secondary: 240 8% 15%;
+    --secondary-foreground: 220 15% 88%;
+
+    --muted: 240 8% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 151 100% 50%;
+    --accent-foreground: 240 10% 6%;
+
+    --destructive: 0 100% 65%;
+    --destructive-foreground: 220 15% 88%;
+
+    --border: 240 8% 18%;
+    --input: 240 8% 15%;
+    --ring: 151 100% 50%;
+
+    --radius: 1rem;
+
+    /* Neon accent colors */
+    --neon-green: 151 100% 50%;
+    --neon-amber: 45 100% 50%;
+    --neon-red: 0 100% 65%;
+    
+    /* Glassmorphism */
+    --glass-bg: 240 10% 12%;
+    --glass-border: 240 8% 20%;
+    
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(151 100% 50% / 0.1), hsl(151 100% 50% / 0.05));
+    
+    /* Shadows */
+    --shadow-glow-green: 0 0 30px hsl(151 100% 50% / 0.3);
+    --shadow-glow-red: 0 0 30px hsl(0 100% 65% / 0.3);
+    --shadow-card: 0 8px 32px hsl(240 10% 3% / 0.5);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 240 10% 8%;
+    --sidebar-foreground: 220 15% 88%;
+    --sidebar-primary: 151 100% 50%;
+    --sidebar-primary-foreground: 240 10% 6%;
+    --sidebar-accent: 240 8% 15%;
+    --sidebar-accent-foreground: 220 15% 88%;
+    --sidebar-border: 240 8% 18%;
+    --sidebar-ring: 151 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: hsl(var(--glass-bg) / 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border) / 0.5);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .glass-card-hover {
+    transition: var(--transition-smooth);
+  }
+  
+  .glass-card-hover:hover {
+    border-color: hsl(var(--neon-green) / 0.3);
+    box-shadow: var(--shadow-glow-green), var(--shadow-card);
+    transform: translateY(-2px);
+  }
+  
+  .neon-text-green {
+    color: hsl(var(--neon-green));
+    text-shadow: 0 0 10px hsl(var(--neon-green) / 0.5);
+  }
+  
+  .neon-text-amber {
+    color: hsl(var(--neon-amber));
+    text-shadow: 0 0 10px hsl(var(--neon-amber) / 0.5);
+  }
+  
+  .neon-text-red {
+    color: hsl(var(--neon-red));
+    text-shadow: 0 0 10px hsl(var(--neon-red) / 0.5);
+  }
+  
+  .gradient-cyber {
+    background: var(--gradient-cyber);
+  }
+}
